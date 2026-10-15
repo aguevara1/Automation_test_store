@@ -27,7 +27,7 @@ Automation_test_store/
 ```
 
 ## Setup
- Clone the repository and create a Python virtual environment
+ Clone the repository and create a Python virtual environment. 
  Install the required dependencies:
      pip install -r requirements.txt
 
