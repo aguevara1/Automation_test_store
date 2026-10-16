@@ -256,7 +256,7 @@ class AutomationTestStorePage:
         self.driver.find_element(*self.CREATE_ACCOUNT_REGION_STATE_LOCATOR).click()
 
     def select_region_state(self):
-        WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.CREATE_ACCOUNT_SELECT_REGION_STATE_LOCATOR)).click()
+        WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(self.CREATE_ACCOUNT_SELECT_REGION_STATE_LOCATOR)).click()
 
 # Enter zip code
     def click_on_zip_code_field(self):
