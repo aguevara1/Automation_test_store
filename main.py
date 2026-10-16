@@ -1,4 +1,4 @@
-#
+
 import data
 from selenium import webdriver
 from pages import AutomationTestStorePage
@@ -9,8 +9,20 @@ class TestAutomationTestStore:
 
     @classmethod
     def setup_class(cls):
-        cls.driver = webdriver.Chrome()
-        cls.driver.maximize_window()
+      #  cls.driver = webdriver.Chrome()
+      #  cls.driver.maximize_window()
+      
+
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--window-size=1920,1080")
+
+        cls.driver = webdriver.Chrome(options=options)
+        
+
+
 
     #  self means the current instance of the class
     # Basic Homepage Smoke Tests
