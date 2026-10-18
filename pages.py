@@ -129,7 +129,10 @@ class AutomationTestStorePage:
 
     # Register account ///  left off here!!!!!
     def check_register_account_radio(self):
-        radio = self.driver.find_element(*self.REGISTER_ACCOUNT_RADIO_LOCATOR)
+        #radio = self.driver.find_element(*self.REGISTER_ACCOUNT_RADIO_LOCATOR)
+        radio = WebDriverWait(self.driver, 20).until(
+            EC.element_to_be_clickable(self.REGISTER_ACCOUNT_RADIO_LOCATOR)
+        )
         if not radio.is_selected():
             radio.click()
         return radio.is_selected()
