@@ -245,10 +245,10 @@ class TestAutomationTestStore:
        "JohnSmith@bikers.com")
         # Entering complete address
         homepage.entering_complete_address_country("123 Smith Ave", "San Miguel", "12345")
-        result = homepage.creating_login_name_password("Joshua123", "pass12345", "pass12345")
-        assert result["login_name_entered"] == "Joshua123"
-        assert result["password_entered"] == "pass12345"
-        assert result["password_confirmed_entered"] == "pass12345"
+        result = homepage.creating_login_name_password("Toshua1234", "vlut1439", "vlut1439")
+        assert result["login_name_entered"] == "Toshua1234"
+        assert result["password_entered"] == "vlut1439"
+        assert result["password_confirmed_entered"] == "vlut1439"
         time.sleep(20)
 
 
