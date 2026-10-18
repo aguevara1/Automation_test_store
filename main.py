@@ -188,6 +188,9 @@ class TestAutomationTestStore:
         homepage.enter_city("San Jose")
         assert homepage.get_city() == "San Jose"
         homepage.clear_city_field()
+    # country tests
+        homepage.click_country_field()
+        homepage.select_country()
     # region state tests
         homepage.click_region_state()
         homepage.select_region_state()
@@ -197,8 +200,8 @@ class TestAutomationTestStore:
         assert homepage.get_zip_code() == "78741"
         homepage.clear_zip_code_field()
     # country tests
-        homepage.click_country_field()
-        homepage.select_country()
+    #    homepage.click_country_field()
+    #    homepage.select_country()
     # create login name
         homepage.enter_login_name("joseph12")
         assert homepage.get_login_name() == "joseph12"
