@@ -24,7 +24,7 @@ class TestAutomationTestStore:
 
 
 
-    #  self means the current instance of the class
+    #  'self' means the current instance of the class
     # Basic Homepage Smoke Tests
     # ============================================================
     # Individual validation tests retained for troubleshooting.
@@ -203,14 +203,14 @@ class TestAutomationTestStore:
     #    homepage.click_country_field()
     #    homepage.select_country()
     # create login name
-        homepage.enter_login_name("joseph12")
-        assert homepage.get_login_name() == "joseph12"
+        homepage.enter_login_name("trammly123")
+        assert homepage.get_login_name() == "trammly123"
     # create login password
-        homepage.enter_login_password("che1234")
-        assert homepage.get_login_password() == "che1234"
+        homepage.enter_login_password("qles0347")
+        assert homepage.get_login_password() == "qles0347"
     # confirm password test
-        homepage.enter_login_password_confirm("che1234")
-        assert homepage.get_login_password_confirm() == "che1234"
+        homepage.enter_login_password_confirm("qles0347")
+        assert homepage.get_login_password_confirm() == "qles0347"
     # click privacy policy checkbox
         homepage.click_privacy_policy()
     # click create account continue button
@@ -219,7 +219,7 @@ class TestAutomationTestStore:
 
 
 # Automating methods for testing complete address details
-    # the region state is not being selected,,,the field is left BLANK!!!!!!!!!!!!!*****
+  
     def test_complete_address_country(self):
         self.driver.get(data.AUTOMATION_TEST_STORE_URL)
         homepage = AutomationTestStorePage(self.driver)
