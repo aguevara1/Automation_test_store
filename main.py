@@ -248,10 +248,10 @@ class TestAutomationTestStore:
        "JohnSmith@bikers.com")
         # Entering complete address
         homepage.entering_complete_address_country("123 Smith Ave", "San Miguel", "12345")
-        result = homepage.creating_login_name_password("Toshua1234", "vlut1439", "vlut1439")
-        assert result["login_name_entered"] == "Toshua1234"
-        assert result["password_entered"] == "vlut1439"
-        assert result["password_confirmed_entered"] == "vlut1439"
+        result = homepage.creating_login_name_password("nPlq4503", "Qpas4567", "Qpas4567")
+        assert result["login_name_entered"] == "nPlq4503"
+        assert result["password_entered"] == "Qpas4567"
+        assert result["password_confirmed_entered"] == "Qpas4567"
         time.sleep(20)
 
 
