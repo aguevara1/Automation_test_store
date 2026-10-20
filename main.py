@@ -87,7 +87,6 @@ class TestAutomationTestStore:
         assert result["category_menu"] is True
 
 
-
     # ============================================================
     # Individual validation tests retained for troubleshooting.
     # Uncomment a test when isolating a specific page-element failure.
