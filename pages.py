@@ -142,7 +142,9 @@ class AutomationTestStorePage:
 
     # Enter user data in first name field to create account
     def enter_latin_characters_first_name(self, latin_first_name):
-        self.driver.find_element(*self.CREATE_ACCOUNT_FIRST_NAME_LOCATOR).send_keys(latin_first_name)
+        #self.driver.find_element(*self.CREATE_ACCOUNT_FIRST_NAME_LOCATOR).send_keys(latin_first_name)
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            self.CREATE_ACCOUNT_FIRST_NAME_LOCATOR)).send_keys(latin_first_name)
 
     def get_latin_characters_first_name_value(self):
         return self.driver.find_element(*self.CREATE_ACCOUNT_FIRST_NAME_LOCATOR).get_attribute("value")
