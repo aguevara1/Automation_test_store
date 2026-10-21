@@ -382,11 +382,21 @@ class AutomationTestStorePage:
 
     # Hover over
     def hover_over_account_button(self):
-        account_button = self.driver.find_element(*self.SUB_NAV_HOME_BUTTON_ACCOUNT_LOCATOR)
+        account_button = WebDriverWait(self.driver, 15).until(
+            EC.visibility_of_element_located(
+                self.SUB_NAV_HOME_BUTTON_ACCOUNT_LOCATOR
+                )
+        )
         ActionChains(self.driver).move_to_element(account_button).perform()
 
+
+
     def click_check_my_order_button(self):
-        self.driver.find_element(*self.CHECK_MY_ORDER_BUTTON_LOCATOR).click()
+        #self.driver.find_element(*self.CHECK_MY_ORDER_BUTTON_LOCATOR).click()
+        WebDriverWait(self.driver, 15).until(
+            EC.element_to_be_clickable(self.CHECK_MY_ORDER_BUTTON_LOCATOR)
+        ).click()
+
 
     def hover_welcome_back_user(self):
         for_logoff = self.driver.find_element(*self.LOGOUT_WELCOME_USER_LOCATOR)
