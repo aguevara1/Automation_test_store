@@ -383,7 +383,7 @@ class AutomationTestStorePage:
     # Hover over
     def hover_over_account_button(self):
         account_button = WebDriverWait(self.driver, 15).until(
-            EC.visibility_of_element_located(
+            EC.presence_of_element_located(
                 self.SUB_NAV_HOME_BUTTON_ACCOUNT_LOCATOR
                 )
         )
