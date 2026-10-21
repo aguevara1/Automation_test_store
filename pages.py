@@ -363,6 +363,7 @@ class AutomationTestStorePage:
         }
 
 
+
     def click_login_or_register(self):
         self.driver.find_element(*self.LOGIN_TO_EXISTING_ACCOUNT_LOCATOR).click()
 
@@ -375,7 +376,7 @@ class AutomationTestStorePage:
     def click_account_login_button(self):
         self.driver.find_element(*self.LOGIN_TO_EXISTING_ACCOUNT_LOGIN_BUTTON_LOCATOR).click()
 
-    # Hover over
+    # Hover over Home button
     def hover_over_home_button(self):
         home_button = self.driver.find_element(*self.SUB_NAV_HOME_BUTTON_LOCATOR)
         ActionChains(self.driver).move_to_element(home_button).perform()
@@ -412,6 +413,7 @@ class AutomationTestStorePage:
         self.enter_account_login_name(login_name)
         self.enter_account_password(password)
         self.click_account_login_button()
+        self.hover_over_home_button()        
         self.hover_over_account_button()
         self.click_check_my_order_button()
         self.hover_welcome_back_user()
