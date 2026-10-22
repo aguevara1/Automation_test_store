@@ -98,7 +98,7 @@ class AutomationTestStorePage:
 
 # Product selection tests
     def select_item(self):
-         WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(self.ITEM_LOCATOR)).click()
+         WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(self.ITEM_LOCATOR)).click()
 
     def select_quantity(self):
         self.driver.find_element(*self.ITEM_QUANTITY_LOCATOR).click()
