@@ -378,7 +378,7 @@ class AutomationTestStorePage:
 
     # Hover over Home button
     def hover_over_home_button(self):
-        home_button = self.driver.find_element(*self.SUB_NAV_HOME_BUTTON_LOCATOR)
+        home_button = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.SUB_NAV_HOME_BUTTON_LOCATOR))
         ActionChains(self.driver).move_to_element(home_button).perform()
 
     # Hover over
