@@ -94,10 +94,11 @@ class AutomationTestStorePage:
         }
 
 
-
-
 # Product selection tests
     def select_item(self):
+         print("Current URL:", self.driver.current_url)
+         products = self.driver.find_elements(*self.ITEM_LOCATOR)
+         print("Matching products found:", len(products))
          WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(self.ITEM_LOCATOR)).click()
 
     def select_quantity(self):
