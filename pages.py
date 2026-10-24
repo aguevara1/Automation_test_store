@@ -380,8 +380,23 @@ class AutomationTestStorePage:
 
     # Hover over Home button
     def hover_over_home_button(self):
-        home_button = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.SUB_NAV_HOME_BUTTON_LOCATOR))
-        ActionChains(self.driver).move_to_element(home_button).perform()
+        wait = WebDriverWait(self.driver, 10)
+
+        for attempt in range(3):
+            try:
+                home_button = wait.until(
+                    EC.visibility_of_element_located(
+                        self.SUB_NAV_HOME_BUTTON_LOCATOR
+                    )
+                )
+                ActionChains(self.driver).move_to_element(home_button).perform()
+                  
+                return
+
+            except StaleElementReferenceException:
+                if attempt == 2:
+                     raise
+
 
     # Hover over
     def hover_over_account_button(self):
