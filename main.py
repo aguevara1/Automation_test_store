@@ -190,13 +190,13 @@ class TestAutomationTestStore:
         homepage.clear_city_field()
     # country tests
         homepage.click_country_field()
-        homepage.select_country()
+        homepage.select_country() 
     # region state tests
         homepage.click_region_state()
         homepage.select_region_state()
     # zip code tests
         homepage.enter_zip_code("78741")
-        time.sleep(25)
+        #time.sleep(25)
         assert homepage.get_zip_code() == "78741"
         homepage.clear_zip_code_field()
     # country tests
