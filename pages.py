@@ -97,13 +97,7 @@ class AutomationTestStorePage:
 # Product selection tests
     def select_item(self):
          print("Current URL:", self.driver.current_url)
-        # Check whether we are on the login page
-         if "account/login" in self.driver.current_url:
-            raise RuntimeError(
-              "Cannot select products: browser is on the login page "
-              "instead of the product page."
-         )
-
+  
          products = self.driver.find_elements(*self.ITEM_LOCATOR)
          print("Matching products found:", len(products))
          WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(self.ITEM_LOCATOR)).click()

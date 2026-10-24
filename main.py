@@ -127,6 +127,7 @@ class TestAutomationTestStore:
     # Automating the methods that enter personal details in the new user account registration
     def test_entering_new_user_personal_details(self):
         self.driver.get(data.AUTOMATION_TEST_STORE_URL)
+        self.driver.refresh()
         homepage = AutomationTestStorePage(self.driver)
         # Complete checkout before entering registration details
         homepage.checking_out_items(2)
