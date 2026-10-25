@@ -13,7 +13,7 @@ class TestAutomationTestStore:
       #  cls.driver = webdriver.Chrome()
       #  cls.driver.maximize_window()
       
-
+      # Using ChromeOptions() for headless browser  
         options = webdriver.ChromeOptions()
         options.add_argument("--headless=new")
         options.add_argument("--no-sandbox")
