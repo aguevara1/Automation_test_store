@@ -240,7 +240,7 @@ class TestAutomationTestStore:
         homepage.click_privacy_policy()
     # click create account continue button
         homepage.click_create_account_continue_button()
-        time.sleep(8)
+        #time.sleep(8)
         self.driver.quit()
 
 
