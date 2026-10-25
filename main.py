@@ -221,12 +221,8 @@ class TestAutomationTestStore:
         homepage.select_region_state()
     # zip code tests
         homepage.enter_zip_code("78741")
-        #time.sleep(25)
         assert homepage.get_zip_code() == "78741"
         homepage.clear_zip_code_field()
-    # country tests
-    #    homepage.click_country_field()
-    #    homepage.select_country()
     # create login name
         homepage.enter_login_name("trammly123")
         assert homepage.get_login_name() == "trammly123"
@@ -240,7 +236,6 @@ class TestAutomationTestStore:
         homepage.click_privacy_policy()
     # click create account continue button
         homepage.click_create_account_continue_button()
-        #time.sleep(8)
         self.driver.quit()
 
 
@@ -269,7 +264,6 @@ class TestAutomationTestStore:
         assert result["address_returned"] == "123 Smith Ave"
         assert result["city_returned"] == "San Miguel"
         assert result["zip_returned"] == "12345"
-        #time.sleep(8)
         self.driver.quit()
 
 # Automating methods for testing login credentials, reading privacy policy and continuing
@@ -297,7 +291,7 @@ class TestAutomationTestStore:
         assert result["login_name_entered"] == "nPlq4503"
         assert result["password_entered"] == "Qpas4567"
         assert result["password_confirmed_entered"] == "Qpas4567"
-        time.sleep(20)
+        #time.sleep(20)
         self.driver.quit()
 
 
