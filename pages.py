@@ -6,9 +6,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import StaleElementReferenceException
 
-
-
-
 # Defining the page class, locators and method in the class
 class AutomationTestStorePage:
     HEADING_LOCATOR = (By.XPATH, "//div[contains(@class,'welcome_msg')]//h4[contains(text(), 'Welcome to the Automation Test Store!')]")
@@ -49,10 +46,9 @@ class AutomationTestStorePage:
     SUB_NAV_HOME_BUTTON_ACCOUNT_LOCATOR = (By.XPATH, '//a[contains(@class,"menu_account")]/span[contains(@class, "menu_text") and normalize-space()="Account"]')
     CHECK_MY_ORDER_BUTTON_LOCATOR = (By.XPATH, '//a[contains(@class,"menu_order")]/span[contains(@class, "menu_text") and normalize-space()="Check Your Order"]')
 
-
-
+    # Initialize the driver
     def __init__(self, driver):
-        self.driver = driver  # Initialize the driver
+        self.driver = driver 
 
     def get_title(self):
         return self.driver.title
@@ -81,8 +77,8 @@ class AutomationTestStorePage:
     def is_category_menu_displayed(self):
         return self.driver.find_element(*self.CATEGORY_MENU_LOCATOR).is_displayed()
 
-# Automating the tests for website loading correctly
-# returning a python dictionary, key, values
+    # Automating the tests for website loading correctly
+    # returning a python dictionary, key, values
     def verify_website_loaded(self):
         return {
             "title": self.get_title(),
@@ -96,7 +92,7 @@ class AutomationTestStorePage:
         }
 
 
-# Product selection tests
+    # Product selection tests
     def select_item(self):
          print("Current URL:", self.driver.current_url)
   
@@ -120,7 +116,7 @@ class AutomationTestStorePage:
         checkout = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.CHECKOUT_BUTTON_LOCATOR))
         checkout.click()
 
-# Automating the methods for checking out items into one step
+    # Automating the methods for checking out items into one step
     def checking_out_items(self,quantity):
         self.select_item()
         self.select_quantity()
@@ -128,8 +124,6 @@ class AutomationTestStorePage:
         self.enter_input_quantity_value(quantity)
         self.add_to_cart()
         self.click_on_checkout()
-
-
 
     # Register account ///  left off here!!!!!
     def check_register_account_radio(self):
@@ -167,7 +161,7 @@ class AutomationTestStorePage:
     def get_special_characters_first_name_value(self):
         return self.driver.find_element(*self.CREATE_ACCOUNT_FIRST_NAME_LOCATOR).get_attribute("value")
 
-# Enter user data in last name field to create account
+    # Enter user data in last name field to create account
     def enter_latin_characters_last_name(self, value):
         self.driver.find_element(*self.CREATE_ACCOUNT_LAST_NAME_LOCATOR).send_keys(value)
 
@@ -189,7 +183,7 @@ class AutomationTestStorePage:
     def get_special_characters_last_name_value(self):
         return self.driver.find_element(*self.CREATE_ACCOUNT_LAST_NAME_LOCATOR).get_attribute("value")
 
-# Enter user data in email field
+    # Enter user data in email field
     def enter_email_address(self, value):
         self.driver.find_element(*self.CREATE_ACCOUNT_EMAIL_LOCATOR).send_keys(value)
 
@@ -239,10 +233,7 @@ class AutomationTestStorePage:
             "email_address_l_n": email_address_check
         }
 
-
-
-
-# Enter physical address
+    # Enter physical address
     def enter_address(self, value):
         self.driver.find_element(*self.CREATE_ACCOUNT_ADDRESS_LOCATOR).send_keys(value)
 
@@ -251,7 +242,7 @@ class AutomationTestStorePage:
 
     def clear_address_field(self):
         self.driver.find_element(*self.CREATE_ACCOUNT_ADDRESS_LOCATOR).clear()
-# Enter city
+    # Enter city
     def enter_city(self, value):
         self.driver.find_element(*self.CREATE_ACCOUNT_CITY_LOCATOR).send_keys(value)
 
@@ -260,7 +251,7 @@ class AutomationTestStorePage:
 
     def clear_city_field(self):
         self.driver.find_element(*self.CREATE_ACCOUNT_CITY_LOCATOR).clear()
-# Enter region state, searchable drop-down
+    # Enter region state, searchable drop-down
     def click_region_state(self):
        # self.driver.find_element(*self.CREATE_ACCOUNT_REGION_STATE_LOCATOR).click()
         WebDriverWait(self.driver, 20).until(
@@ -273,7 +264,7 @@ class AutomationTestStorePage:
     def select_region_state(self):
         WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(self.CREATE_ACCOUNT_SELECT_REGION_STATE_LOCATOR)).click()
 
-# Enter zip code
+    # Enter zip code
     def click_on_zip_code_field(self):
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.CREATE_ACCOUNT_ZIP_CODE_LOCATOR)).click()
 
@@ -285,14 +276,14 @@ class AutomationTestStorePage:
 
     def clear_zip_code_field(self):
         self.driver.find_element(*self.CREATE_ACCOUNT_ZIP_CODE_LOCATOR).clear()
-# Enter country, searchable drop-down list
+    # Enter country, searchable drop-down list
     def click_country_field(self):
         self.driver.find_element(*self.CREATE_ACCOUNT_COUNTRY_LOCATOR).click()
 
     def select_country(self):
         self.driver.find_element(*self.CREATE_ACCOUNT_SELECT_COUNTRY_LOCATOR).click()
 
-# Automating methods for address, city, zip and country
+    # Automating methods for address, city, zip and country
 
     def entering_complete_address_country(self, address, city, zip_code):
         self.enter_address(address)
@@ -308,8 +299,6 @@ class AutomationTestStorePage:
         self.click_on_zip_code_field()
         self.enter_zip_code(zip_code)
         zip_returned = self.get_zip_code()
-      #  self.click_country_field()
-      #  self.select_country()
         self.click_login_name_field()
         return {
             "address_returned": address_returned,
@@ -318,8 +307,7 @@ class AutomationTestStorePage:
         }
 
 
-
-# Create login name
+    # Create login name
     def click_login_name_field(self):
         self.driver.find_element(*self.CREATE_ACCOUNT_LOGIN_NAME_LOCATOR).click()
 
@@ -328,29 +316,29 @@ class AutomationTestStorePage:
 
     def get_login_name(self):
         return self.driver.find_element(*self.CREATE_ACCOUNT_LOGIN_NAME_LOCATOR).get_attribute("value")
-# Create login password
+    # Create login password
     def enter_login_password(self,value):
         self.driver.find_element(*self.CREATE_ACCOUNT_LOGIN_PASSWORD_LOCATOR).send_keys(value)
 
     def get_login_password(self):
         return self.driver.find_element(*self.CREATE_ACCOUNT_LOGIN_PASSWORD_LOCATOR).get_attribute("value")
 
-# Create confirm password
+    # Create confirm password
     def enter_login_password_confirm(self,value):
         self.driver.find_element(*self.CREATE_ACCOUNT_LOGIN_PASSWORD_CONFIRM_LOCATOR).send_keys(value)
 
     def get_login_password_confirm(self):
         return self.driver.find_element(*self.CREATE_ACCOUNT_LOGIN_PASSWORD_CONFIRM_LOCATOR).get_attribute("value")
 
-# Click privacy policy checkbox
+    # Click privacy policy checkbox
     def click_privacy_policy(self):
         self.driver.find_element(*self.CREATE_ACCOUNT_PRIVACY_POLICY_LOCATOR).click()
 
-# Click create account continue button
+    # Click create account continue button
     def click_create_account_continue_button(self):
         self.driver.find_element(*self.CREATE_ACCOUNT_CONTINUE_BUTTON_LOCATOR).click()
 
-# Automating the methods for creating a login name, password and confirming reading privacy policy
+    # Automating the methods for creating a login name, password and confirming reading privacy policy
     def creating_login_name_password(self, login_name, password, password_confirmed):
         self.enter_login_name(login_name)
         login_name_entered = self.get_login_name()
@@ -365,7 +353,6 @@ class AutomationTestStorePage:
             "password_entered": password_entered,
             "password_confirmed_entered": password_confirmed_entered
         }
-
 
 
     def click_login_or_register(self):
@@ -399,7 +386,6 @@ class AutomationTestStorePage:
                 if attempt == 2:
                      raise
 
-
     # Hover over
     def hover_over_account_button(self):
         account_button = WebDriverWait(self.driver, 15).until(
@@ -408,7 +394,6 @@ class AutomationTestStorePage:
                 )
         )
         ActionChains(self.driver).move_to_element(account_button).perform()
-
 
 
     def click_check_my_order_button(self):

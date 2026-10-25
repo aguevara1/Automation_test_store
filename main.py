@@ -69,7 +69,6 @@ class TestAutomationTestStore:
     #    homepage = AutomationTestStorePage(self.driver)
     #    assert homepage.is_category_menu_displayed() == True
 
-
     # Calling the step function from POM pages.py
     def test_website_loaded(self):
         self.driver.get(data.AUTOMATION_TEST_STORE_URL)
@@ -122,10 +121,8 @@ class TestAutomationTestStore:
         # Close the existing session
         self.driver.quit()
 
-
     # Automating the methods that enter personal details in the new user account registration
-    def test_entering_new_user_personal_details(self):
-      
+    def test_entering_new_user_personal_details(self):  
         # Create a new session
         options = webdriver.ChromeOptions()
         options.add_argument("--headless=new")
@@ -159,7 +156,6 @@ class TestAutomationTestStore:
     # Uncomment a test when isolating a specific page-element failure.
     # ============================================================
     def test_create_account(self):
-    
         # Create a new session
         options = webdriver.ChromeOptions()
         options.add_argument("--headless=new")
@@ -235,11 +231,8 @@ class TestAutomationTestStore:
         homepage.click_create_account_continue_button()
         self.driver.quit()
 
-
 # Automating methods for testing complete address details
-  
-    def test_complete_address_country(self):
-       
+    def test_complete_address_country(self): 
         # Create a new session
         options = webdriver.ChromeOptions()
         options.add_argument("--headless=new")
@@ -265,7 +258,6 @@ class TestAutomationTestStore:
 
 # Automating methods for testing login credentials, reading privacy policy and continuing
     def test_login_credentials_privacy_policy_continuing(self):
-     
         # Create a new session
         options = webdriver.ChromeOptions()
         options.add_argument("--headless=new")
@@ -289,7 +281,6 @@ class TestAutomationTestStore:
         assert result["password_entered"] == "Qpas4567"
         assert result["password_confirmed_entered"] == "Qpas4567"
         self.driver.quit()
-
 
     def test_login_to_existing_account(self):
         # Create a new session
