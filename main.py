@@ -9,6 +9,7 @@ class TestAutomationTestStore:
 
     @classmethod
     def setup_class(cls):
+      # When runnning tests locally use maximize_window()
       #  cls.driver = webdriver.Chrome()
       #  cls.driver.maximize_window()
       
@@ -21,10 +22,7 @@ class TestAutomationTestStore:
 
         cls.driver = webdriver.Chrome(options=options)
 
-
-
-
-    #  'self' means the current instance of the class
+    # 'self' means the current instance of the class
     # Basic Homepage Smoke Tests
     # ============================================================
     # Individual validation tests retained for troubleshooting.
@@ -85,7 +83,6 @@ class TestAutomationTestStore:
         assert result["search_box"] is True
         assert result["nav_shopping_cart"] is True
         assert result["category_menu"] is True
-
 
     # ============================================================
     # Individual validation tests retained for troubleshooting.
@@ -307,9 +304,7 @@ class TestAutomationTestStore:
         self.driver.get(data.AUTOMATION_TEST_STORE_URL)
         homepage = AutomationTestStorePage(self.driver)
         homepage.existing_user_login("Joshua123", "pass12345")
-        #time.sleep(20)
-
-
+    
     @classmethod
     def teardown_class(cls):
         cls.driver.quit()
