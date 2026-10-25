@@ -126,13 +126,23 @@ class TestAutomationTestStore:
 
     # Automating the methods that enter personal details in the new user account registration
     def test_entering_new_user_personal_details(self):
+        # Close the existing session
+        self.driver.quit()
+
+        # Create a new session
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--window-size=1920,1080")
+
+        self.driver = webdriver.Chrome(options=options)
+
         self.driver.get(data.AUTOMATION_TEST_STORE_URL)
 
         print("URL after navigation:", self.driver.current_url)
-        self.driver.refresh()
+        #self.driver.refresh()
         print("URL after refresh:", self.driver.current_url)
-
-
         homepage = AutomationTestStorePage(self.driver)
         # Complete checkout before entering registration details
         homepage.checking_out_items(2)
