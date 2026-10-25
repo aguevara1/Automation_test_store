@@ -291,12 +291,10 @@ class TestAutomationTestStore:
         assert result["login_name_entered"] == "nPlq4503"
         assert result["password_entered"] == "Qpas4567"
         assert result["password_confirmed_entered"] == "Qpas4567"
-        #time.sleep(20)
         self.driver.quit()
 
 
     def test_login_to_existing_account(self):
-   
         # Create a new session
         options = webdriver.ChromeOptions()
         options.add_argument("--headless=new")
@@ -309,7 +307,7 @@ class TestAutomationTestStore:
         self.driver.get(data.AUTOMATION_TEST_STORE_URL)
         homepage = AutomationTestStorePage(self.driver)
         homepage.existing_user_login("Joshua123", "pass12345")
-        time.sleep(20)
+        #time.sleep(20)
 
 
     @classmethod
