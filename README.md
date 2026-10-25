@@ -32,7 +32,9 @@ Automation_test_store/
      pip install -r requirements.txt
 
 ## Running the Tests
- Test execution instructions will be added as the automation suite is developed
+The automated test suite runs through GitHub Actions. When changes are pushed to the GitHub repository, the configured workflow automatically executes the Selenium tests using pytest in a headless Chrome environment.
+
+Test execution results can be viewed in the Actions tab of the GitHub repository.
 
 ## Project Status
  This project is actively being developed as part of a Software QA automation portfolio.
