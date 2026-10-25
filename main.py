@@ -127,12 +127,17 @@ class TestAutomationTestStore:
     # Automating the methods that enter personal details in the new user account registration
     def test_entering_new_user_personal_details(self):
         self.driver.get(data.AUTOMATION_TEST_STORE_URL)
+
+        print("URL after navigation:", self.driver.current_url)
         self.driver.refresh()
+        print("URL after refresh:", self.driver.current_url)
+
+
         homepage = AutomationTestStorePage(self.driver)
         # Complete checkout before entering registration details
         homepage.checking_out_items(2)
         results = homepage.registering_new_user_personal_details("jose", "jose juan", "jose#",
-       "Gonzales", "Garcia Gonzalez", "Sandoval%%", "JohnSmith@bikers.com")
+        "Gonzales", "Garcia Gonzalez", "Sandoval%%", "JohnSmith@bikers.com")
         assert results["latin_characters_f_n"] == "jose"
         assert results["spaces_f_n"] == "jose juan"
         assert results["special_characters_f_n"] == "jose#"
