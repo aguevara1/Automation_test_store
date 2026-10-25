@@ -119,13 +119,13 @@ class TestAutomationTestStore:
         self.driver.get(data.AUTOMATION_TEST_STORE_URL)
         homepage = AutomationTestStorePage(self.driver)
         homepage.checking_out_items(2)
+        # Close the existing session
+        self.driver.quit()
 
 
     # Automating the methods that enter personal details in the new user account registration
     def test_entering_new_user_personal_details(self):
-        # Close the existing session
-        self.driver.quit()
-
+      
         # Create a new session
         options = webdriver.ChromeOptions()
         options.add_argument("--headless=new")
