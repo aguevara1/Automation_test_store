@@ -155,13 +155,23 @@ class TestAutomationTestStore:
         assert results["spaces_l_n"] == "Garcia Gonzalez"
         assert results["special_characters_l_n"] == "Sandoval%%"
         assert results["email_address_l_n"] == "JohnSmith@bikers.com"
-
+        self.driver.quit()
 
     # ============================================================
     # This test calls on all the methods from selecting item to finishing registering
     # Uncomment a test when isolating a specific page-element failure.
     # ============================================================
     def test_create_account(self):
+    
+        # Create a new session
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--window-size=1920,1080")
+
+        self.driver = webdriver.Chrome(options=options)
+
         self.driver.get(data.AUTOMATION_TEST_STORE_URL)
         homepage= AutomationTestStorePage(self.driver)
         homepage.select_item()
@@ -231,11 +241,22 @@ class TestAutomationTestStore:
     # click create account continue button
         homepage.click_create_account_continue_button()
         time.sleep(8)
+        self.driver.quit()
 
 
 # Automating methods for testing complete address details
   
     def test_complete_address_country(self):
+       
+        # Create a new session
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--window-size=1920,1080")
+
+        self.driver = webdriver.Chrome(options=options)
+
         self.driver.get(data.AUTOMATION_TEST_STORE_URL)
         homepage = AutomationTestStorePage(self.driver)
         # Complete checkout before entering registration details
@@ -249,10 +270,19 @@ class TestAutomationTestStore:
         assert result["city_returned"] == "San Miguel"
         assert result["zip_returned"] == "12345"
         time.sleep(8)
-
+        self.driver.quit()
 
 # Automating methods for testing login credentials, reading privacy policy and continuing
     def test_login_credentials_privacy_policy_continuing(self):
+     
+        # Create a new session
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--window-size=1920,1080")
+
+        self.driver = webdriver.Chrome(options=options)
         self.driver.get(data.AUTOMATION_TEST_STORE_URL)
         homepage = AutomationTestStorePage(self.driver)
         # Complete checkout before entering registration details
@@ -268,9 +298,20 @@ class TestAutomationTestStore:
         assert result["password_entered"] == "Qpas4567"
         assert result["password_confirmed_entered"] == "Qpas4567"
         time.sleep(20)
+        self.driver.quit()
 
 
     def test_login_to_existing_account(self):
+   
+        # Create a new session
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--window-size=1920,1080")
+
+        self.driver = webdriver.Chrome(options=options)
+
         self.driver.get(data.AUTOMATION_TEST_STORE_URL)
         homepage = AutomationTestStorePage(self.driver)
         homepage.existing_user_login("Joshua123", "pass12345")
